@@ -7,7 +7,7 @@ The concept is simple: ensure that each column, row, and box contains numbers 1 
 *CSS\
 *JavaScript\
 ## Wireframe
-![Alt text](image.png)
+![Alt text](sudoku.png)
 ## MVP Goals
  *Render a game with a fixed sudoku board that had a hard coded solution\
  *Render a game board with starting numbers in the browser as well as an indicator that states how many lives the player has.\
