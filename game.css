@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    font-family: 'Electrolize', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    font-size: 4vmin;
+    color: blueviolet;
+    letter-spacing: .8vmin;
+}
+
+h1 {
+    color: black;
+    font-size: 4vmin;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(9, 5vmin);
+    grid-template-rows: repeat(9, 5vmin);
+    gap: 0;
+    margin-bottom: 4vmin;
+    border: solid black;
+}
+
+#board > div {
+    border: .1vmin solid grey;
+}
+
+button {
+    padding: 2vmin;
+    font-size: 2vmin;
+    border-radius: 1vmin;
+    border: .2vmin solid black;
+    background-color: white;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+}
