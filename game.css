@@ -48,3 +48,17 @@ button:hover {
     background-color: black;
     color: white;
 }
+
+#board > #c2r8 {
+    border: .3vmin solid black;
+    border-left: .1vmin solid grey;
+    border-bottom: .1vmin solid grey;
+    border-top: .1vmin solid grey;
+}
+
+#board > #c2r7 {
+    border: .3vmin solid black;
+    border-left: .1vmin solid grey;
+    border-bottom: .1vmin solid grey;
+    border-top: .1vmin solid grey;
+}    
