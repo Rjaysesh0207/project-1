@@ -6,7 +6,7 @@ const messageEl = document.querySelector('h1');
 const playAgainBtn = document.querySelector('button');
 const cellsEls = [...document.querySelectorAll('#board > div')];
 
-document.getElementById('board').addEventListener('click', handleDrop);
+document.getElementById('board').addEventListener('click', handlePlayerInput);
 
 init();
 
@@ -28,9 +28,32 @@ function init() {
     render();
 }
 
-// in response to UI, update all impacted state, then call render()
-function handleDrop(evt) {
-    console.log(evt.target);
+// in response to user intaract, update all impacted state, then call render()
+function handlePlayerInput(evt) {
+    const cellIdx = evt.target;
+    // id the cell
+    const cellId = cellIdx.id;
+    // colIdx
+    const colIdx = parseInt(cellId.charAt(1));
+    // rowIdx
+    const rowIdx = parseInt(cellId.charAt(3));
+
+    // check if the cell is empty aka 0
+    if (board[colIdx][rowIdx] === 0) {
+        let input;
+        do {
+            input = prompt('Enter your number(1-9): ')
+        } while (input !== null && (isNaN(parseInt(input)) || parseInt(input) < 1 || parseInt(input) > 9));
+
+        //make sure the input is a valid number
+        if (input !== null) {
+            const number = parseInt(input);
+            board[colIdx][rowIdx] = number;            
+        }
+    }
+    // update the board state with cur player value
+
+    console.log(cellIdx);
     
     render();
 }
