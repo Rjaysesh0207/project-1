@@ -51,60 +51,60 @@ button:hover {
 }
 
 #board > div:nth-child(3n) {
-border: .3vmin solid black;
-border-left: .1vmin solid grey;
-border-bottom: .1vmin solid grey;
-border-top: .1vmin solid grey;
+    border: .3vmin solid black;
+    border-left: .1vmin solid grey;
+    border-bottom: .1vmin solid grey;
+    border-top: .1vmin solid grey;
 }
 
 #board > #c0r6,
 #board > #c0r6 + div {
-border: .3vmin solid black;
-border-left: .1vmin solid grey;
-border-top: .1vmin solid grey;
-border-right: .1vmin solid grey;
+    border: .3vmin solid black;
+    border-left: .1vmin solid grey;
+    border-top: .1vmin solid grey;
+    border-right: .1vmin solid grey;
 }
 
 #board > #c2r6 {
-border: .3vmin solid black;
-border-top: .1vmin solid grey;
-border-left: .1vmin solid grey;
+    border: .3vmin solid black;
+    border-top: .1vmin solid grey;
+    border-left: .1vmin solid grey;
 }
 
 #board > #c3r6,
 #board > #c3r6 + div {
-border: .3vmin solid black;
-border-left: .1vmin solid grey;
-border-top: .1vmin solid grey;
-border-right: .1vmin solid grey;
+    border: .3vmin solid black;
+    border-left: .1vmin solid grey;
+    border-top: .1vmin solid grey;
+    border-right: .1vmin solid grey;
 }
 
 #board > #c5r6 {
-border: .3vmin solid black;
-border-top: .1vmin solid grey;
-border-left: .1vmin solid grey;
+    border: .3vmin solid black;
+    border-top: .1vmin solid grey;
+    border-left: .1vmin solid grey;
 }
 
 #board > #c6r6,
 #board > #c6r6 + div {
-border: .3vmin solid black;
-border-left: .1vmin solid grey;
-border-top: .1vmin solid grey;
-border-right: .1vmin solid grey;
+    border: .3vmin solid black;
+    border-left: .1vmin solid grey;
+    border-top: .1vmin solid grey;
+    border-right: .1vmin solid grey;
 }
 
 #board > #c8r6 {
-border: .3vmin solid black;
-border-top: .1vmin solid grey;
-border-left: .1vmin solid grey;
+    border: .3vmin solid black;
+    border-top: .1vmin solid grey;
+    border-left: .1vmin solid grey;
 }
 
 #board > #c0r3,
 #board > #c0r3 + div {
-border: .3vmin solid black;
-border-left: .1vmin solid grey;
-border-top: .1vmin solid grey;
-border-right: .1vmin solid grey;
+    border: .3vmin solid black;
+    border-left: .1vmin solid grey;
+    border-top: .1vmin solid grey;
+    border-right: .1vmin solid grey;
 }
 
 #board > #c2r3 {
@@ -115,10 +115,10 @@ border-right: .1vmin solid grey;
     
 #board > #c3r3,
 #board > #c3r3 + div {
-border: .3vmin solid black;
-border-left: .1vmin solid grey;
-border-top: .1vmin solid grey;
-border-right: .1vmin solid grey;
+    border: .3vmin solid black;
+    border-left: .1vmin solid grey;
+    border-top: .1vmin solid grey;
+    border-right: .1vmin solid grey;
 }
 
 #board > #c5r3 {
@@ -129,10 +129,10 @@ border-right: .1vmin solid grey;
 
 #board > #c6r3,
 #board > #c6r3 + div {
-border: .3vmin solid black;
-border-left: .1vmin solid grey;
-border-top: .1vmin solid grey;
-border-right: .1vmin solid grey;
+    border: .3vmin solid black;
+    border-left: .1vmin solid grey;
+    border-top: .1vmin solid grey;
+    border-right: .1vmin solid grey;
 }
 
 #board > #c8r3 {
