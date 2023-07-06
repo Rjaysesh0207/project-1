@@ -69,6 +69,17 @@ function handlePlayerInput(evt) {
             } else {
                 lives -= 1;
             }
+            let isBoardFull = true;
+            for (let colArr of board) {
+                if (colArr.includes(0)) {
+                    isBoardFull = false;
+                    break;
+                }
+            }
+
+            if (isBoardFull) {
+                gameOver = true;
+            }
         }
 
         if (lives === 0) {
@@ -119,4 +130,3 @@ function renderControls() {
 }
 
 
-// JS classes lesson, building a browser game lesson
