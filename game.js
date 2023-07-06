@@ -1,5 +1,5 @@
 let board; // array of 9 col arrays
-let winner; // null = no winner; 1 = winner
+let gameOver; // null = no winner; 1 = winner
 let lives; //lives = 5 to start
 
 const solution = [
@@ -38,7 +38,7 @@ function init() {
         [5, 1, 0, 0, 3, 0, 0, 8, 0], // col 8
     ];
     
-    winner = null;
+    gameOver = null;
     lives = 5;
     render();
 }
@@ -54,6 +54,7 @@ function handlePlayerInput(evt) {
     // rowIdx
     const rowIdx = parseInt(cellId.charAt(3));
 
+
     // update the board state with cur player value
     // check if the cell is empty aka 0
     if (board[colIdx][rowIdx] === 0) {
@@ -63,13 +64,22 @@ function handlePlayerInput(evt) {
         } while (input !== null && (isNaN(parseInt(input)) || parseInt(input) < 1 || parseInt(input) > 9));
         if (input !== null) {
             const number = parseInt(input);
-            board[colIdx][rowIdx] = number;
+            if (number === solution[colIdx][rowIdx]) {
+                board[colIdx][rowIdx] = number;
+            } else {
+                lives -= 1;
+            }
         }
+
+        if (lives === 0) {
+            gameOver = true;
+        }           
     }
-    //check for winner
-    // winner = getWinner(colIdx, rowIdx);
+
     render();
 }
+
+
 
 // visualize all state in the DOM
 function render() {
@@ -105,7 +115,7 @@ function renderMessage() {
 }
 
 function renderControls() {
-    playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
+    playAgainBtn.style.visibility = gameOver ? 'visible' : 'hidden';
 }
 
 
