@@ -10,13 +10,11 @@ The concept is simple: ensure that each column, row, and box contains numbers 1 
 ![](./image.png)
 ## MVP Goals
  *Render a game with a fixed sudoku board that had a hard coded solution\
- *Render a game board with starting numbers in the browser as well as an indicator that states how many lives the player has.\
+ *Render a game board with starting numbers in the browser as well as an indicator that states how many lives the player has\
  *Have player able to click on a cell of the board and type their number into a cell\
  *Have player lose a life when a guess is wrong\
  *When the player solves the puzzle render a congradulations message, if player looses lives, render a you lose message\
  *Include a play again button to reset the game\
-
-
 ## Stretch goals
 *Create a randomized puzzle generator upon hitting the play again button\
 *Create a difficulty setting to increase difficulty from easy, medium and hard\
