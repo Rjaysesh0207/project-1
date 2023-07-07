@@ -23,6 +23,6 @@ The concept is simple: ensure that each column, row, and box contains numbers 1 
 *Create an obvious loss of lives indicator\
 ## Potential Roadblocks
 *I forsee the logic behind creating a solution being rather difficult\
-*I also forsee the way the starting numbers being arranged on gameStart being hard to guage weather or not the puzzle will be too hard to solve
+*I also forsee the way the starting numbers being arranged on gameStart being hard to guage weather or not the puzzle will be too hard to solve\
 ## Sources
 *To create a way to win or lose the game I got the solution idea from Kenny Yip Codings youtube channel. I adjusted his solution code to make the logic for my win/loss conditions.

@@ -140,3 +140,10 @@ button:hover {
     border-top: .1vmin solid grey;
     border-left: .1vmin solid grey;
 }
+
+input {
+    width: 4vmin;
+    height: 4vmin;
+    font-size: 3vmin;
+    margin-top: 3vmin;
+}

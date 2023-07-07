@@ -1,17 +1,18 @@
 let board; // array of 9 col arrays
 let gameOver; // null = no winner; 1 = winner
 let lives; //lives = 5 to start
+let isBoardFull;
 
 const solution = [
-    [1, 2, 8, 5, 9, 7, 6, 4, 3], // col 0
-    [4, 3, 5, 8, 6, 2, 7, 9, 1], // col 1
-    [9, 6, 7, 1, 4, 3, 8, 2, 5], // col 2
-    [8, 5, 6, 3, 2, 9, 1, 7, 4], // col 3
-    [2, 4, 3, 7, 5, 1, 9, 6, 8], // col 4
-    [7, 9, 1, 4, 8, 6, 3, 5, 2], // col 5
-    [3, 8, 4, 6, 7, 5, 2, 1, 9], // col 6
-    [6, 7, 2, 9, 1, 8, 4, 3, 6], // col 7
-    [5, 1, 9, 2, 3, 4, 5, 8, 7], // col 8
+    [7, 2, 8, 4, 6, 3, 9, 5, 1], // col 0
+    [4, 1, 3, 5, 9, 7, 6, 8, 2], // col 1
+    [5, 9, 6, 8, 1, 2, 7, 4, 3], // col 2
+    [3, 8, 9, 7, 5, 4, 1, 2, 6], // col 3
+    [1, 5, 2, 9, 8, 6, 4, 3, 7], // col 4
+    [6, 7, 4, 2, 3, 1, 5, 9, 8], // col 5
+    [8, 4, 1, 6, 2, 5, 3, 7, 9], // col 6
+    [9, 3, 5, 1, 7, 8, 2, 6, 4], // col 7
+    [2, 6, 7, 3, 4, 9, 8, 1, 5], // col 8
 ]
 const messageEl = document.querySelector('h1');
 const playAgainBtn = document.querySelector('button');
@@ -27,15 +28,15 @@ init();
 function init() {
     // 90 degree flip counter clockwise is my board
     board = [
-        [0, 2, 0, 0, 9, 0, 0, 4, 3], // col 0
-        [0, 0, 5, 8, 0, 0, 7, 0, 0], // col 1
-        [0, 6, 0, 1, 4, 0, 8, 2, 0], // col 2
-        [0, 5, 0, 0, 0, 0, 1, 0, 4], // col 3
-        [0, 4, 0, 0, 0, 1, 0, 6, 0], // col 4
-        [7, 0, 1, 4, 0, 0, 0, 5, 0], // col 5
-        [0, 8, 4, 0, 7, 5, 2, 0, 0], // col 6
-        [0, 0, 2, 0, 1, 8, 0, 0, 0], // col 7
-        [5, 1, 0, 0, 3, 0, 0, 8, 0], // col 8
+        [0, 2, 0, 0, 6, 0, 0, 5, 1], // col 0
+        [0, 0, 3, 5, 0, 0, 6, 0, 0], // col 1
+        [0, 9, 0, 8, 1, 0, 7, 4, 0], // col 2
+        [0, 8, 0, 0, 0, 0, 1, 0, 6], // col 3
+        [0, 5, 0, 0, 0, 6, 0, 3, 0], // col 4
+        [6, 0, 4, 2, 0, 0, 0, 9, 0], // col 5
+        [0, 4, 1, 0, 2, 5, 3, 0, 0], // col 6
+        [0, 0, 5, 0, 7, 8, 0, 0, 0], // col 7
+        [2, 6, 0, 0, 4, 0, 0, 1, 0], // col 8
     ];
     
     gameOver = null;
@@ -44,28 +45,24 @@ function init() {
 }
 
 
-// in response to user intaract, update all impacted state, then call render()
 function handlePlayerInput(evt) {
     const cellIdx = evt.target;
-    // id the cell
     const cellId = cellIdx.id;
-    // colIdx
     const colIdx = parseInt(cellId.charAt(1));
-    // rowIdx
     const rowIdx = parseInt(cellId.charAt(3));
 
-
-    // update the board state with cur player value
-    // check if the cell is empty aka 0
     if (board[colIdx][rowIdx] === 0) {
-        let input;
-        do {
-            input = prompt('Enter your number (1-9');
-        } while (input !== null && (isNaN(parseInt(input)) || parseInt(input) < 1 || parseInt(input) > 9));
-        if (input !== null) {
-            const number = parseInt(input);
-            if (number === solution[colIdx][rowIdx]) {
-                board[colIdx][rowIdx] = number;
+        const numberInput = document.getElementById('numberInput');
+        const inputValue = parseInt(numberInput.value);
+        
+        // Check if the input is a valid number between 1 and 9
+        if (!isNaN(inputValue) && inputValue >= 1 && inputValue <= 9) {
+            // Clear the error message
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.textContent = '';
+
+            if (inputValue === solution[colIdx][rowIdx]) {
+                board[colIdx][rowIdx] = inputValue;
             } else {
                 lives -= 1;
             }
@@ -78,18 +75,23 @@ function handlePlayerInput(evt) {
             }
 
             if (isBoardFull) {
+                const gratsMessage = document.getElementById('gratsMessage');
+                gratsMessage.textContent = 'Nice job!!';
                 gameOver = true;
             }
+        } else {
+            // Set the error message in the h2 element
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.textContent = 'Please enter a valid number between 1 and 9';
         }
 
         if (lives === 0) {
             gameOver = true;
-        }           
+        }
     }
 
     render();
 }
-
 
 
 // visualize all state in the DOM
@@ -122,7 +124,7 @@ function renderBoard() {
 }
 
 function renderMessage() {
-    messageEl.innerHTML = lives > 0 ? `LIVES: ${lives}` : "You are out of lives."
+    messageEl.innerHTML = lives > 0 ? `LIVES: ${lives}` : 'You are out of lives.'
 }
 
 function renderControls() {

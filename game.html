@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sudoku-Showdown</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
@@ -13,7 +13,9 @@
 </head>
 <body>
    <header>Sudoku Showdown</header>
-   <h1>Lives: 4</h1>
+   <h1></h1>
+   <h2 id="gratsMessage"></h2>
+   <h2 id="errorMessage"></h2>
    <section id="board">
       <div id="c0r8"></div>
       <div id="c1r8"></div>
@@ -107,6 +109,6 @@
     </section>
 
     <button>Play Again</button>
-    
+    <input type="number" id="numberInput" min="1" max="9" value="1">        
 </body>
 </html>
