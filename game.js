@@ -3,6 +3,9 @@ let gameOver; // null = no winner; 1 = winner
 let lives; //lives = 5 to start
 let isBoardFull;
 
+
+
+// function generateRandomSolution() {
 const solution = [
     [7, 2, 8, 4, 6, 3, 9, 5, 1], // col 0
     [4, 1, 3, 5, 9, 7, 6, 8, 2], // col 1
@@ -13,59 +16,88 @@ const solution = [
     [8, 4, 1, 6, 2, 5, 3, 7, 9], // col 6
     [9, 3, 5, 1, 7, 8, 2, 6, 4], // col 7
     [2, 6, 7, 3, 4, 9, 8, 1, 5], // col 8
-
-
+    
 ]
+//     const rows = [
+//         [solution[0][0], solution[1][0], solution[2][0], solution[3][0], solution[4][0], solution[5][0], solution[6][0], solution[7][0], solution[8][0]],
+//         [solution[0][1], solution[1][1], solution[2][1], solution[3][1], solution[4][1], solution[5][1], solution[6][1], solution[7][1], solution[8][1]],
+//         [solution[0][2], solution[1][2], solution[2][2], solution[3][2], solution[4][2], solution[5][2], solution[6][2], solution[7][2], solution[8][2]],
+//         [solution[0][3], solution[1][3], solution[2][3], solution[3][3], solution[4][3], solution[5][3], solution[6][3], solution[7][3], solution[8][3]],
+//         [solution[0][4], solution[1][4], solution[2][4], solution[3][4], solution[4][4], solution[5][4], solution[6][4], solution[7][4], solution[8][4]],
+//         [solution[0][5], solution[1][5], solution[2][5], solution[3][5], solution[4][5], solution[5][5], solution[6][5], solution[7][5], solution[8][5]],
+//         [solution[0][6], solution[1][6], solution[2][6], solution[3][6], solution[4][6], solution[5][6], solution[6][6], solution[7][6], solution[8][6]],
+//         [solution[0][7], solution[1][7], solution[2][7], solution[3][7], solution[4][7], solution[5][7], solution[6][7], solution[7][7], solution[8][7]],
+//         [solution[0][8], solution[1][8], solution[2][8], solution[3][8], solution[4][8], solution[5][8], solution[6][8], solution[7][8], solution[8][8]]
+//     ]
+//     const boxes =  [
+//         [
+//             solution[0][0], solution[0][1], solution[0][2],
+//             solution[1][0], solution[1][1], solution[1][2],
+//             solution[2][0], solution[2][1], solution[2][2]
+//         ],
+//         [
+//             solution[0][3], solution[0][4], solution[0][5],
+//             solution[1][3], solution[1][4], solution[1][5],
+//             solution[2][3], solution[2][4], solution[2][5]
+//         ],
+//         [
+//             solution[0][6], solution[0][7], solution[0][8],
+//             solution[1][6], solution[1][7], solution[1][8],
+//             solution[2][6], solution[2][7], solution[2][8]
+//         ],
+//         [
+//             solution[3][0], solution[3][1], solution[3][2],
+//             solution[4][0], solution[4][1], solution[4][2],
+//             solution[5][0], solution[5][1], solution[5][2]
+//         ],
+//         [
+//             solution[3][3], solution[3][4], solution[3][5],
+//             solution[4][3], solution[4][4], solution[4][5],
+//             solution[5][3], solution[5][4], solution[5][5]
+//         ],
+//         [
+//             solution[3][6], solution[3][7], solution[3][8],
+//             solution[4][6], solution[4][7], solution[4][8],
+//             solution[5][6], solution[5][7], solution[5][8]
+//         ],
+//         [
+//             solution[6][0], solution[6][1], solution[6][2],
+//             solution[7][0], solution[7][1], solution[7][2],
+//             solution[8][0], solution[8][1], solution[8][2]
+//         ],
+//         [
+//             solution[6][3], solution[6][4], solution[6][5],
+//             solution[7][3], solution[7][4], solution[7][5],
+//             solution[8][3], solution[8][4], solution[8][5]
+//         ],
+//         [
+//             solution[6][6], solution[6][7], solution[6][8],
+//             solution[7][6], solution[7][7], solution[7][8],
+//             solution[8][6], solution[8][7], solution[8][8]
+//         ],
+//     ];
+//     for (let i = 0; i < solution.length; i++) {
+//         for (let j = 0; j < solution[i].length; j++) {
+//             let randomNum = Math.floor(Math.random() * 9) + 1;
+//             if (rows[i].includes(randomNum) || solution[i].includes(randomNum) || boxes[i].includes(randomNum)) {
+//                 randomNum = Math.floor(Math.random() * 9) + 1;
+//             } else {
+//                 solution[i][j] = randomNum; 
+
+//             }
+//         }    
+//     }
+//     return solution;
+// }
+
+
+
+
 const messageEl = document.querySelector('h1');
 const playAgainBtn = document.querySelector('button');
 const cellsEls = [...document.querySelectorAll('#board > div')];
-const boxes =  [
-[
-    solution[0][0], solution[0][1], solution[0][2],
-    solution[1][0], solution[1][1], solution[1][2],
-    solution[2][0], solution[2][1], solution[2][2]
-],
-[
-    solution[0][3], solution[0][4], solution[0][5],
-    solution[1][3], solution[1][4], solution[1][5],
-    solution[2][3], solution[2][4], solution[2][5]
-],
-[
-    solution[0][6], solution[0][7], solution[0][8],
-    solution[1][6], solution[1][7], solution[1][8],
-    solution[2][6], solution[2][7], solution[2][8]
-],
-[
-    solution[3][0], solution[3][1], solution[3][2],
-    solution[4][0], solution[4][1], solution[4][2],
-    solution[5][0], solution[5][1], solution[5][2]
-],
-[
-    solution[3][3], solution[3][4], solution[3][5],
-    solution[4][3], solution[4][4], solution[4][5],
-    solution[5][3], solution[5][4], solution[5][5]
-],
-[
-    solution[3][6], solution[3][7], solution[3][8],
-    solution[4][6], solution[4][7], solution[4][8],
-    solution[5][6], solution[5][7], solution[5][8]
-],
-[
-    solution[6][0], solution[6][1], solution[6][2],
-    solution[7][0], solution[7][1], solution[7][2],
-    solution[8][0], solution[8][1], solution[8][2]
-],
-[
-    solution[6][3], solution[6][4], solution[6][5],
-    solution[7][3], solution[7][4], solution[7][5],
-    solution[8][3], solution[8][4], solution[8][5]
-],
-[
-    solution[6][6], solution[6][7], solution[6][8],
-    solution[7][6], solution[7][7], solution[7][8],
-    solution[8][6], solution[8][7], solution[8][8]
-],
-];
+
+
 
 playAgainBtn.addEventListener('click', init);
 document.getElementById('board').addEventListener('click', handlePlayerInput);
@@ -73,6 +105,7 @@ document.getElementById('board').addEventListener('click', handlePlayerInput);
 init();
 
 function init() {
+    // generateRandomSolution()
     // 90 degree flip counter clockwise is my board
     board = [
         [0, 2, 0, 0, 6, 0, 0, 5, 1], // col 0
@@ -85,7 +118,7 @@ function init() {
         [0, 0, 5, 0, 7, 8, 0, 0, 0], // col 7
         [2, 6, 0, 0, 4, 0, 0, 1, 0], // col 8
     ];
-    
+    // solution = board;
     gameOver = null;
     lives = 5;
     render();
